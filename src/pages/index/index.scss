@@ -1,0 +1,139 @@
+$swiper_width_percentage: 85%;
+$other_items_radius: (1:top-left, 2:top-right, 3:bottom-left, 4:bottom-right);
+
+.index {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  .swiper-view {
+    position: relative;
+    width: $swiper_width_percentage;
+    padding-bottom: calc(#{$swiper_width_percentage} * 3 / 4);
+    .swiper {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      .swiper-item {
+        image {
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+  .swiper-ratio {
+    display: flex;
+    justify-content: center;
+    view {
+      width: 15px;
+      height: 15px;
+      background-color: darkgray;
+      margin: 30px 8px;
+      border-radius: 50%;
+      &.checked {
+        background-color: #ff8547;
+      }
+    }
+  }
+  .operation {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .self-order {
+      background-color: #ff8547;
+      color: white;
+      letter-spacing: 10px;
+      line-height: 1.8;
+      width: 68%;
+      border: none;
+      z-index: 10;
+      margin: {
+        bottom: -8Px;
+      }
+    }
+    &-items {
+      position: relative;
+      display: flex;
+      width: 100%;
+      view {
+        background-color: #fff;
+        width: 100%;
+        height: 80px;
+        &.splinter {
+          background-color: #eee;
+          position: absolute;
+          width: 2px;
+          height: 40px;
+          top: 13Px;
+          left: 50%;
+          box-sizing: border-box;
+        }
+        &.item {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          Image {
+            margin: {
+              top: 10px;
+            }
+            width: 40px;
+            height: 40px;
+          }
+          text {
+            margin: {
+              top: 5px;
+              left: 10px;
+            }
+            font-size: 24px;
+            letter-spacing: 5px;
+            color: #ff8547;
+          }
+        }
+        &.left {
+          border: {
+            top-left-radius: 10px;
+            bottom-left-radius: 10px;
+          }
+        }
+        &.right {
+          Image {
+            height: 36px;
+            margin: {
+              top: 3px;
+           }
+          }
+          border: {
+            top-right-radius: 10px;
+            bottom-right-radius: 10px;
+          }
+        }
+      }
+    }
+  }
+  .other {
+    margin: {
+      top: 20Px;
+    }
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 80%;
+    view {
+      width: 50%;
+      height: 200px;
+      background-color: #fff;
+      @each $index, $radius in $other_items_radius {
+        &.item-#{$index} {
+          border-#{$radius}-radius: 10px;
+        }
+      }
+    }
+  }
+}
+
